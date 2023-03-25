@@ -7,6 +7,8 @@ const ProjectList = new PersistentMap<string, string[]>("store projectlist");
 const FeedbackArray = new PersistentMap<string, i32[]>("store feedback");
 const userFeedbackGiven = new PersistentMap<string, string[]>("user Participation Record");
 const FeedbackTally = new PersistentMap<string, string[][]>("yes");
+const ManagerInfo = new PersistentMap<string, string>("store individual managers");
+const ManagerList = new PersistentMap<string, string[]>("store manager list");
 // VIEW METHODS
 // Does not change state of the blockchain
 // Does not incur a fee
@@ -78,7 +80,22 @@ export function didProvideFeedback(project:string, user:string):bool{
     return false
   }
 }
-
+export function getManagerInfo(manager:string):string{
+  if(ManagerInfo.contains(manager)){
+    return ManagerInfo.getSome(manager);
+  }else{
+    logging.log(`can't find that manager`)
+    return '';
+  }
+}
+export function getAllManagers():string[] {
+  if(ManagerList.contains('AllArrays')){
+    return ManagerList.getSome("AllArrays");
+  }else{
+    logging.log('no prompts found');
+    return [];
+  }
+}
 //Change Methods
 //Changes state of blockchain
 //costs a transaction fee to do so
@@ -140,6 +157,24 @@ export function addToProjectList(project: string):void
     ProjectInfo.set(`${listLength}`, projectAdded)
   }
 }
+export function addToManagerList(orgInfo: string, organization:string):void{
+  logging.log('added to manager array');
+  if(ManagerList.contains("AllArrays")){
+    let listLength = ManagerList.getSome("AllArrays").length
+    let managerAdded = orgInfo.slice(0,-1) + `,"index":"${listLength}"}` 
+    let tempArray = ManagerList.getSome("AllArrays")
+    tempArray.push(managerAdded)
+    ManagerList.set("AllArrays",tempArray);
+    
+    ManagerInfo.set(organization, managerAdded)
+  }else{
+    let listLength = 0;
+    let managerAdded = orgInfo.slice(0,-1) + `,"index":"${listLength}"}`
+    ManagerList.set("AllArrays", [managerAdded])
+    //projectAdded = projectAdded.replace('\'',"")
+    ManagerInfo.set(organization, managerAdded)
+  }
+}
 export function clearProjectArray():void{
   logging.log('clearing prompt array');
   ProjectList.delete("AllArrays")
@@ -148,6 +183,14 @@ export function clearProjectInfoList():void{
   logging.log('clearing prompt array');
   ProjectInfo.delete("AllArrays")
 
+}
+export function clearManagerInfo(manager:string):void{
+  logging.log('clearing Manager info array');
+  ManagerInfo.delete(manager)
+}
+export function clearManagerList():void{
+  logging.log('clearing Manager List array');
+  ManagerList.delete("AllArrays")
 }
 export function clearFeedbackArray(project:string):void{
   logging.log('clearing feedback array for given project');

@@ -12,7 +12,7 @@ const Landing = (props) => {
         <Container >
             <Row>
                 <Col className='justify-content-center d-flex flex-column' style={{padding: '0 3rem 0 1rem'}}>
-                    <h1 className='mb-3'>IELEC is a voting technology based platform based on the blockchain</h1>
+                    <h1 className='mb-3'>IELEC: Integral Educational Ledger for Enterprise/Community based on the blockchain</h1>
                     <p className='mb-4'>A secure, decentralized, auditable and open platform for e-voting and vote counting that everybody can trust</p>
                     <Row className="justify-content-start d-flex align-items-center">
                         <Col className="col-sm-3">
@@ -21,17 +21,17 @@ const Landing = (props) => {
                             </Button>
                         </Col>
                         <Col className="col-sm-6">
-                        <Link to="#about" style={{textDecoration:'none'}}>How it works</Link>
+                        <Link to="#aboutzz" style={{textDecoration:'none'}}>How it works</Link>
                         </Col>
                         
                     </Row>
                 </Col>
                 <Col className='justify-content-center d-flex'>
-                    <img style={{height: 'auto', width:'100%'}} src={HeroVote}></img>
+                    <img style={{height: 'auto', width:'100%'}} src={'https://media.discordapp.net/attachments/1040657808179335299/1089041580595355758/Saly-1.png?width=662&height=662'}></img>
                 </Col>
             </Row>
             <Row className="mt-5">
-                <Col className='justify-content-center d-flex flex-column' style={{padding: '0 3rem 0 1rem'}}>
+                <Col className='justify-content-center d-flex flex-column' style={{padding: '0 3rem 0 1rem'}} id="aboutzz">
                     <h2 className='mb-3'>Foundation for Security</h2>
                     <p>Blockchain technology is considered more secure than its contemporaries because of lack of a single point of failure. Blockchain operates on a well-distributed network of nodes, hence data at all times is 
                     circulated through not one but multiple nodes, which makes sure that even if one node is hacked or faulty in any way the integrity of the original data will not be compromised.</p>

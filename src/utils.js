@@ -32,6 +32,8 @@ export async function initContract() {
     'getAllProjects',
     'getProjectInfoLength',
     'getFeedbackTally',
+    'getManagerInfo',
+    'getAllManagers',
     'didProvideFeedback'],
     // Change methods can modify the state. But you don't receive the returned value when called.
     changeMethods: ['addUrl',
@@ -42,13 +44,16 @@ export async function initContract() {
     'setVotesTally',
     'addFeedback',
     'addToProjectList',
+    'addToManagerList',
     'clearProjectArray',
     'clearProjectInfoList',
     'recordUserFeedback',
     'setFeedbackTally',
     'clearFeedbackArray',
     'clearFeedbackGiven',
-    'clearFeedbackTally'],
+    'clearFeedbackTally',
+    'clearManagerInfo',
+    'clearManagerList'],
   })
 }
 

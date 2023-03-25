@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import {Card, Container, Button, Row, Col, ProgressBar} from  'react-bootstrap';
+import {Card, Container, Button, Row, Col, ProgressBar, Alert} from  'react-bootstrap';
 import { useParams } from 'react-router-dom'
 import { PieChart } from "react-minimal-pie-chart";
+import { login } from '../utils'
 
 const ProjectInfo = (props) => {
     const [project, changeProject] = useState({"title":"Region IV Metro Line 7","sector":"Mass Transit","budget":"10","funds":"Philippines","region":"Region IV","agency":"DOExam","manager":"Billy Builds","start":"2021","end":"2023","status":"Ongoing","index":"0"});
@@ -57,6 +58,13 @@ const ProjectInfo = (props) => {
           <img src={`${project.url}`} alt="Responsive image" style={{width:'auto', height:'55vh', margin:'0 auto', display:'block'}}></img>
           <Row className="my-3" >
             <Col style={{margin:'0 auto', display:'block'}}>
+              {window.accountId===""? <Alert variant={'warning'}>
+          You must be logged in to cast your vote. 
+          <Alert.Link onClick={login}>Log in now</Alert.Link>.
+        </Alert>:null }
+            {voted && window.accountId!==""? <Alert variant={'success'}>
+          Your vote has successfully been casted.
+        </Alert>:null }
             <Button variant="success" disabled={voted} style={{marginLeft:'25vw'}} onClick={()=>addVote(0)}>Approve</Button>
             <Button variant="danger" disabled={voted} style={{marginLeft:'5vw'}} onClick={()=>addVote(1)}>Disapprove</Button>
             </Col>

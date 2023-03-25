@@ -68,8 +68,9 @@ export default function App() {
   </Container>
 </Navbar>
 <Routes>
-  <Route exact path ='/'element={window.accountId===""?<Landing/>: <Home changeCandidates={changeCandidatesFunction}/>}>
+  <Route exact path ='/'element={window.accountId===""?<Landing/>: <ProjectList/> }>
   </Route>
+  <Route exact path="/testing" element={<Home changeCandidates={changeCandidatesFunction}/>}> </Route>
   <Route  exact path="/PollingStation" element={<PollingStation/>}>
     
   </Route>
