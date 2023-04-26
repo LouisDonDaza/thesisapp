@@ -56,7 +56,7 @@ export default function App() {
             </NavDropdown>
       <NavDropdown title={window.accountId==='' ? 'Login': window.accountId} id="navbarScrollingDropdown">
               {window.accountId==='' ? null:
-              <NavDropdown.Item href="/projects">
+              <NavDropdown.Item href="/votecheck">
                 Profile
               </NavDropdown.Item>}
               <NavDropdown.Item onClick={window.accountId===''?login:logout} >

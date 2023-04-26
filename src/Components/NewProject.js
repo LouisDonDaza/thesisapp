@@ -2,11 +2,13 @@ import React, {useRef} from 'react';
 import {Container, Form, Button} from 'react-bootstrap';
 const NewProject = (props) => {
     const projectTitle = useRef();
+    const projectDesc = useRef();
     const projectSector = useRef();
     const projectBudget = useRef();
-    const projectFunds = useRef();
+    //const projectFunds = useRef();
     const projectRegion = useRef();
     const projectAgency = useRef();
+    const projectAgencyURL = useRef();
     const projectManager = useRef();
     const projectStart = useRef();
     const projectEnd = useRef();
@@ -22,11 +24,13 @@ const NewProject = (props) => {
         misc = (projectBudget.current.value * misc).toFixed(3)
         let proj = JSON.stringify({
             title: projectTitle.current.value,
+            description: projectDesc.current.value,
             sector: projectSector.current.value,
             budget: projectBudget.current.value,
-            funds: projectFunds.current.value,
+            funds: 'Philippines',
             region: projectRegion.current.value,
             agency: projectAgency.current.value,
+            agencyURL: projectAgencyURL.current.value,
             manager: projectManager.current.value,
             start: projectStart.current.value,
             end: projectEnd.current.value,
@@ -55,6 +59,12 @@ const NewProject = (props) => {
                     </Form.Control>
                 </Form.Group>
                 <Form.Group className="mb-3">
+                    <Form.Label>Project Description</Form.Label>
+                    <Form.Control ref={projectDesc} placeholder="Enter Project Description">
+
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group className="mb-3">
                     <Form.Label>Project Sector</Form.Label>
                     <Form.Control ref={projectSector} placeholder="Enter Project Sector">
 
@@ -63,12 +73,6 @@ const NewProject = (props) => {
                 <Form.Group className="mb-3">
                     <Form.Label>Project Budget</Form.Label>
                     <Form.Control ref={projectBudget} placeholder="Enter Project Budget (e.g. 24)">
-
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Project Funds (Source of funds) </Form.Label>
-                    <Form.Control ref={projectFunds} placeholder="Enter Project Funds (e.g. Canada)">
 
                     </Form.Control>
                 </Form.Group>
@@ -85,7 +89,13 @@ const NewProject = (props) => {
                     </Form.Control>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                    <Form.Label>Project Manager</Form.Label>
+                    <Form.Label>Project Agency URL</Form.Label>
+                    <Form.Control ref={projectAgencyURL} placeholder="Enter Project Agency (e.g. gov.ph)">
+
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Private Proponent Manager</Form.Label>
                     <Form.Control ref={projectManager} placeholder="Enter Project Manager (e.g. Harry Household)">
 
                     </Form.Control>

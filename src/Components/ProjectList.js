@@ -57,31 +57,32 @@ const ProjectList = (props) => {
             <h3 className="mt-2">Featured Projects</h3>
             <Row>
                 <Col md={4}>
-                    <Link to={`/projects/2`}>
+                    <Link to={`/projects/4`}>
                         <Card>
-                            <Card.Img variant="top" src="https://media.discordapp.net/attachments/1040657808179335299/1060781491640082452/Best-School-Laptop-2020.png?width=1005&height=670" />
+                            <Card.Img variant="top" src="https://media.discordapp.net/attachments/1040657808179335299/1100813157557088307/photo-1473876637954-4b493d59fd97.png?width=827&height=606" />
                             <Card.Body>
-                                <Card.Title>Laptops for Youth</Card.Title>
+                                <Card.Title>Mindanao I Geothermal Plant</Card.Title>
+                            </Card.Body>
+                        </Card>
+                    </Link>
+                </Col>
+                
+                <Col md={4}>
+                    <Link to={`/projects/0`}>
+                        <Card>
+                            <Card.Img variant="top" src="https://media.discordapp.net/attachments/1040657808179335299/1100807612959838318/photo-1551322127-bc5c4f4700d0.png?width=910&height=606" />
+                            <Card.Body>
+                                <Card.Title>Boracay Bridge Project</Card.Title>
                             </Card.Body>
                         </Card>
                     </Link>
                 </Col>
                 <Col md={4}>
-                    <Link to={`/projects/1`}>
+                    <Link to={`/projects/6`}>
                         <Card>
-                            <Card.Img variant="top" src="https://media.discordapp.net/attachments/1040657808179335299/1060779027083829278/lrt1-new-train-012621.png?width=1005&height=670" />
+                            <Card.Img variant="top" src="https://media.discordapp.net/attachments/1040657808179335299/1100815919007154196/premium_photo-1661698845550-6d0689adb388.png?width=910&height=606" />
                             <Card.Body>
-                                <Card.Title>Region V Metro Line 5</Card.Title>
-                            </Card.Body>
-                        </Card>
-                    </Link>
-                </Col>
-                <Col md={4}>
-                    <Link to={`/projects/3`}>
-                        <Card>
-                            <Card.Img variant="top" src="https://media.discordapp.net/attachments/1040657808179335299/1060782856609214474/pexels-photo-3912479.png?width=1004&height=670" />
-                            <Card.Body>
-                                <Card.Title>Biodiversity Assessment</Card.Title>
+                                <Card.Title>Database Infrastructure and Information Technology System</Card.Title>
                             </Card.Body>
                         </Card>
                     </Link>
@@ -90,31 +91,31 @@ const ProjectList = (props) => {
             <h3 className="mt-2">Trending Projects</h3>
             <Row>
                 <Col md={4}>
-                    <Link to={`/projects/0`}>
+                    <Link to={`/projects/3`}>
                         <Card>
-                            <Card.Img variant="top" src="https://media.discordapp.net/attachments/1040657808179335299/1060770097347706880/2_trains.png" />
+                            <Card.Img variant="top" src="https://media.discordapp.net/attachments/1040657808179335299/1100812177201442926/photo-1438550005440-ca2422768342.png?width=910&height=606" />
                             <Card.Body>
-                                <Card.Title>Region IV Metro Line 7</Card.Title>
+                                <Card.Title>Cavite-Laguna Expressway (CALAX)</Card.Title>
                             </Card.Body>
                         </Card>
                     </Link>
                 </Col>
                 <Col md={4}>
-                    <Link to={`/projects/6`}>
+                    <Link to={`/projects/5`}>
                         <Card>
-                            <Card.Img variant="top" src="https://media.discordapp.net/attachments/1040657808179335299/1060817049200369664/pexels-photo-3619870.png?width=1005&height=670" />
+                            <Card.Img variant="top" src="https://media.discordapp.net/attachments/1040657808179335299/1100814738692259982/photo-1527822618093-743f3e57977c.png?width=910&height=606" />
                             <Card.Body>
-                                <Card.Title>Wind Power Plant Development</Card.Title>
+                                <Card.Title>PPP for School Infrastructure Project Phase I (PSIP I) – Package A</Card.Title>
                             </Card.Body>
                         </Card>
                     </Link>
                 </Col>
                 <Col md={4}>
-                    <Link to={`/projects/4`}>
+                    <Link to={`/projects/7`}>
                         <Card>
-                            <Card.Img variant="top" src="https://media.discordapp.net/attachments/1040657808179335299/1060814488594550814/pexels-photo-4386466.png?width=1005&height=670" />
+                            <Card.Img variant="top" src="https://media.discordapp.net/attachments/1040657808179335299/1060786803105349693/pexels-photo-1216589.png?width=908&height=606" />
                             <Card.Body>
-                                <Card.Title>Health Financing</Card.Title>
+                                <Card.Title>Bulacan Bulk Water Supply Project</Card.Title>
                             </Card.Body>
                         </Card>
                     </Link>
@@ -129,7 +130,7 @@ const ProjectList = (props) => {
                         <th>Funding Source</th>
                         <th>Region</th>
                         <th>Implementation Agency</th>
-                        <th>Manager</th>
+                        <th>Private Proponent (Manager)</th>
                         <th>Start</th>
                         <th>End</th>
                         <th>Status</th>
@@ -144,8 +145,8 @@ const ProjectList = (props) => {
                             <td>{el.budget}</td>
                             <td>{el.funds}</td>
                             <td>{el.region}</td>
-                            <td>{el.agency}</td>
-                            <td><Link to={`/organization/${el.manager}`}>{el.manager} </Link></td>
+                            <td><a href={`${el.agencyURL}`} target="_blank">{el.agency}</a></td>
+                            <td>{el.manager}</td>
                             <td>{el.start}</td>
                             <td>{el.end}</td>
                             <td>{el.status}</td>

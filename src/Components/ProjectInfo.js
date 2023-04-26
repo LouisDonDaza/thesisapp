@@ -13,6 +13,14 @@ const ProjectInfo = (props) => {
     useEffect(() => {
       const getPrompts = async () => {
         let result = await window.contract.getProject({project:id});
+        let feedback = await window.contract.getFeedback({project: localStorage.getItem("project")});
+        if (feedback[0]!=0 && feedback[1]!= 0){
+          console.log(feedback)
+          changeRatings(feedback[0]/(feedback[0]+feedback[1]) * 100)
+        }else if (feedback[1]==0){
+          changeRatings(100)
+        }
+
         result = JSON.parse(result);
         changeProject(result);
         localStorage.setItem("project", result.title);
@@ -48,7 +56,7 @@ const ProjectInfo = (props) => {
             project: localStorage.getItem("project"),
             feedback: remark
         })
-        changeRatings(80.7)
+        changeRatings(feedback[0]+1/(feedback[0]+feedback[1]+1) * 100)
         console.log('voted')
     }
     return(
@@ -63,7 +71,7 @@ const ProjectInfo = (props) => {
           <Alert.Link onClick={login}>Log in now</Alert.Link>.
         </Alert>:null }
             {voted && window.accountId!==""? <Alert variant={'success'}>
-          Your vote has successfully been casted.
+            Log [dev-1665068648944-83303412206156]: Your vote has successfully been casted to the blockchain.
         </Alert>:null }
             <Button variant="success" disabled={voted} style={{marginLeft:'25vw'}} onClick={()=>addVote(0)}>Approve</Button>
             <Button variant="danger" disabled={voted} style={{marginLeft:'5vw'}} onClick={()=>addVote(1)}>Disapprove</Button>

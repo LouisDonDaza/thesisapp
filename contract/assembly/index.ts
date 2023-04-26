@@ -179,9 +179,9 @@ export function clearProjectArray():void{
   logging.log('clearing prompt array');
   ProjectList.delete("AllArrays")
 }
-export function clearProjectInfoList():void{
+export function clearProjectInfoList(project:string):void{
   logging.log('clearing prompt array');
-  ProjectInfo.delete("AllArrays")
+  ProjectInfo.delete(project)
 
 }
 export function clearManagerInfo(manager:string):void{
@@ -204,6 +204,7 @@ export function clearFeedbackTally(user:string):void{
   logging.log('clearing feedback tally of user');
   FeedbackTally.delete(user)
 }
+//export function checkLengthsOfArrays():void{}
 /*
 export function getProject(prompt:string):Object {
   if(ProjectDetail.contains(prompt)){
