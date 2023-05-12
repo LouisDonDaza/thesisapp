@@ -5,7 +5,7 @@ import { PieChart } from "react-minimal-pie-chart";
 import { login } from '../utils'
 
 const ProjectInfo = (props) => {
-    const [project, changeProject] = useState({"title":"Region IV Metro Line 7","sector":"Mass Transit","budget":"10","funds":"Philippines","region":"Region IV","agency":"DOExam","manager":"Billy Builds","start":"2021","end":"2023","status":"Ongoing","index":"0"});
+    const [project, changeProject] = useState({"title":"Region IV Metro Line 7","sector":"Mass Transit","budget":"10","funds":"Philippines","region":"Region IV","agency":"DOExam","manager":"Billy Builds","start":"2021","end":"2023","status":"Ongoing","index":"0", "url":"https://media.discordapp.net/attachments/1040657808179335299/1089041580595355758/Saly-1.png?width=606&height=606"});
     const [ratings, changeRatings] = useState(80.6);
     const [voted, changeVotedStatus] = useState(false);
     const { id } = useParams()
@@ -13,13 +13,7 @@ const ProjectInfo = (props) => {
     useEffect(() => {
       const getPrompts = async () => {
         let result = await window.contract.getProject({project:id});
-        let feedback = await window.contract.getFeedback({project: localStorage.getItem("project")});
-        if (feedback[0]!=0 && feedback[1]!= 0){
-          console.log(feedback)
-          changeRatings(feedback[0]/(feedback[0]+feedback[1]) * 100)
-        }else if (feedback[1]==0){
-          changeRatings(100)
-        }
+        
 
         result = JSON.parse(result);
         changeProject(result);
@@ -33,7 +27,14 @@ const ProjectInfo = (props) => {
           });
           changeVotedStatus(didUserVote);
         }
-        
+        let feedback = await window.contract.getFeedback({project: result.title});
+        console.log('feedback: ', feedback)
+        if (feedback[1]==0){
+          console.log(feedback)
+          changeRatings(100)
+        }else{
+          changeRatings(feedback[0]/(feedback[0]+feedback[1]) * 100)
+        }
       };
       getPrompts();
       
@@ -67,7 +68,7 @@ const ProjectInfo = (props) => {
           <Row className="my-3" >
             <Col style={{margin:'0 auto', display:'block'}}>
               {window.accountId===""? <Alert variant={'warning'}>
-          You must be logged in to cast your vote. 
+          You must be logged in to cast your vote. Pls try again. 
           <Alert.Link onClick={login}>Log in now</Alert.Link>.
         </Alert>:null }
             {voted && window.accountId!==""? <Alert variant={'success'}>

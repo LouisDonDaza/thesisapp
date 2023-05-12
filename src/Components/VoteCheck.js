@@ -17,21 +17,28 @@ const VoteCheck = (props) => {
        }
        
     }
-    
+    const submitEntry = async (e) => {
+        e.preventDefault()
+        console.log(e)
+        if (e.key === 'Enter') {
+            console.log('Entered')
+            callBlockChain()
+          }
+    }
     return (
         <Container style={{marginTop:"10px"}}>
             <Row>
                 <Col className='justify-content-center d-flex'><h2>Vote Checker</h2></Col>
             </Row>
-            <Form>
+            
                 <Form.Group className="mb-3">
                     <Form.Label>Account ID</Form.Label>
-                    <Form.Control ref={user} placeholder="Enter Account ID">
+                    <Form.Control ref={user} placeholder="Enter Account ID" onKeyUp={submitEntry}>
 
                     </Form.Control>
                 </Form.Group>
                 
-            </Form>
+            
             <Button variant='primary' className="primary--bg" onClick={callBlockChain}>Submit</Button>
             {validated?<Table style={{margin:"5vh"}} striped bordered hover>
                 <thead>
