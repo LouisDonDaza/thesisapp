@@ -18,8 +18,11 @@ import BuildForm from './Components/BuildForm';
 import NewProject from './Components/NewProject';
 import ProjectInfo from './Components/ProjectInfo';
 import OrganizationInfo from './Components/OrganizationInfo';
+import ProfileInfo from './Components/ProfileInfo';
 //images
-import BlockLogo from "./assets/blocklogo.png";
+//import BlockLogo from "./assets/blocklogoicon.png";
+import BlockLogo2 from "./assets/blocklogoicon2.png";
+//import BlockLogo3 from "./assets/blocklogoicon3.png";
 import getConfig from './config'
 const { networkId } = getConfig(process.env.NODE_ENV || 'development')
 
@@ -34,7 +37,7 @@ export default function App() {
   return (<Router>
     <Navbar className="primary--bg" collapseOnSelect expand="lg" bg="dark" variant="dark">
   <Container>
-  <Navbar.Brand href="/projects"><img src={BlockLogo} style={{height:'2rem', width:'auto'}}></img></Navbar.Brand>
+  <Navbar.Brand href="/projects"><img src={BlockLogo2} style={{height:'2rem', width:'auto'}}></img></Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mx-auto">
@@ -46,17 +49,19 @@ export default function App() {
               <NavDropdown.Item href="/projects">
                 Projects
               </NavDropdown.Item>
+              {window.accountId==='loid.testnet' ? 
               <NavDropdown.Item href="/NewProject">
                 New Project
-              </NavDropdown.Item>
+              </NavDropdown.Item>:null}
               <NavDropdown.Divider />
+              {window.accountId==='loid.testnet' ? 
               <NavDropdown.Item href="/votecheck">
-                Feedback Check
-              </NavDropdown.Item>
+              Feedback Check
+            </NavDropdown.Item>:null}
             </NavDropdown>
       <NavDropdown title={window.accountId==='' ? 'Login': window.accountId} id="navbarScrollingDropdown">
               {window.accountId==='' ? null:
-              <NavDropdown.Item href="/votecheck">
+              <NavDropdown.Item href="/profile">
                 Profile
               </NavDropdown.Item>}
               <NavDropdown.Item onClick={window.accountId===''?login:logout} >
@@ -81,6 +86,7 @@ export default function App() {
   <Route  exact path="/projects" element={<ProjectList/>}> </Route>
   <Route  exact path="/buildform" element={<BuildForm/>}> </Route>
   <Route  exact path="/NewProject" element={<NewProject/>}> </Route>
+  <Route  exact path="/profile" element={<ProfileInfo/>}> </Route>
   <Route  path="/projects/:id" element={<ProjectInfo/>}> </Route>
   <Route  path="/organization/:organization" element={<OrganizationInfo/>}> </Route>
 </Routes>
