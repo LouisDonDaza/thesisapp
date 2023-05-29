@@ -141,7 +141,7 @@ const ProjectInfo = (props) => {
           
             <Row style={{justifyContent:'align-center'}}>
                 <Col md={12}>
-                <h3 style={{textAlign:'center'}} className="mt-2">Budget Overview</h3>
+                <h3 style={{textAlign:'center'}} className="mt-2">Budget Overview <p style={{fontSize:'10px'}}>*for illustration purpose only, not actual breakdown</p></h3>
                 <PieChart
                 style={{
                     fontFamily:

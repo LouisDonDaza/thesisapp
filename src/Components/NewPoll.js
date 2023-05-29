@@ -59,7 +59,7 @@ const NewPoll = (props) => {
                     </Form.Control>
                 </Form.Group>
             </Form>
-            <Button variant='primary' className="primary--bg" onClick={sendToBlockChain}>Submit</Button>
+            <Button variant='primary' disabled={true} className="primary--bg" onClick={sendToBlockChain}>Submit</Button>
         </Container>
     );
 };

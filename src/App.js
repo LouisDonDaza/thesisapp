@@ -19,6 +19,7 @@ import NewProject from './Components/NewProject';
 import ProjectInfo from './Components/ProjectInfo';
 import OrganizationInfo from './Components/OrganizationInfo';
 import ProfileInfo from './Components/ProfileInfo';
+import Undefined from './Components/Undefined';
 //images
 //import BlockLogo from "./assets/blocklogoicon.png";
 import BlockLogo2 from "./assets/blocklogoicon2.png";
@@ -89,6 +90,7 @@ export default function App() {
   <Route  exact path="/profile" element={<ProfileInfo/>}> </Route>
   <Route  path="/projects/:id" element={<ProjectInfo/>}> </Route>
   <Route  path="/organization/:organization" element={<OrganizationInfo/>}> </Route>
+  <Route  path="/undefined" element={<Undefined/>}> </Route>
 </Routes>
   </Router>);
 }
