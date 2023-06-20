@@ -20,9 +20,7 @@ const Landing = (props) => {
                                 Create a vote
                             </Button>
                         </Col>
-                        <Col className="col-sm-6">
-                        <Link to="#aboutzz" style={{textDecoration:'none'}}>How it works</Link>
-                        </Col>
+                        
                         
                     </Row>
                 </Col>

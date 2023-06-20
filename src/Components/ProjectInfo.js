@@ -33,7 +33,7 @@ const ProjectInfo = (props) => {
           console.log(feedback)
           changeRatings(100)
         }else{
-          changeRatings(feedback[0]/(feedback[0]+feedback[1]) * 100)
+          changeRatings(Math.round(feedback[0]/(feedback[0]+feedback[1]) * 100))
         }
       };
       getPrompts();

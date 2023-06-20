@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {Container, Form, Button} from 'react-bootstrap';
+import {Container, Form, Button, Row, Col} from 'react-bootstrap';
 const NewProject = (props) => {
     const projectTitle = useRef();
     const projectDesc = useRef();
@@ -52,78 +52,112 @@ const NewProject = (props) => {
     return (
         <Container style={{marginTop:"10px", width:'70%'}}>
             <Form>
-                <Form.Group className="mb-3">
-                    <Form.Label>Project Title</Form.Label>
-                    <Form.Control ref={projectTitle} placeholder="Enter Project Title">
+                <Row className="justify-content-start d-flex align-items-center">
+                    <Col className="col-sm-6">
+                    <Form.Group className="mb-3">
+                        <Form.Label>Project Title</Form.Label>
+                        <Form.Control ref={projectTitle} placeholder="Enter Project Title">
 
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Project Description</Form.Label>
-                    <Form.Control ref={projectDesc} placeholder="Enter Project Description">
+                        </Form.Control>
+                    </Form.Group>
+                    </Col>
+                    <Col className="col-sm-6">
+                    <Form.Group className="mb-3">
+                        <Form.Label>Project Title</Form.Label>
+                        <Form.Control ref={projectTitle} placeholder="Enter Project Title">
 
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Project Sector</Form.Label>
-                    <Form.Control ref={projectSector} placeholder="Enter Project Sector">
+                        </Form.Control>
+                    </Form.Group>
+                    </Col>
+                    <Col className="col-sm-6">
+                    <Form.Group className="mb-3">
+                        <Form.Label>Project Description</Form.Label>
+                        <Form.Control ref={projectDesc} placeholder="Enter Project Description">
 
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Project Budget</Form.Label>
-                    <Form.Control ref={projectBudget} placeholder="Enter Project Budget (e.g. 24)">
+                        </Form.Control>
+                    </Form.Group>
+                    </Col>
+                    <Col className="col-sm-6">
+                    <Form.Group className="mb-3">
+                        <Form.Label>Project Sector</Form.Label>
+                        <Form.Control ref={projectSector} placeholder="Enter Project Sector">
 
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Project Region</Form.Label>
-                    <Form.Control ref={projectRegion} placeholder="Enter Project Region (e.g. NCR)">
+                        </Form.Control>
+                    </Form.Group>
+                    </Col>
+                    <Col className="col-sm-6">
+                    <Form.Group className="mb-3">
+                        <Form.Label>Project Budget</Form.Label>
+                        <Form.Control ref={projectBudget} placeholder="Enter Project Budget (e.g. 24)">
 
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Project Agency</Form.Label>
-                    <Form.Control ref={projectAgency} placeholder="Enter Project Agency (e.g. DOExample)">
+                        </Form.Control>
+                    </Form.Group>
+                    </Col>
+                    <Col className="col-sm-6">
+                    <Form.Group className="mb-3">
+                        <Form.Label>Project Region</Form.Label>
+                        <Form.Control ref={projectRegion} placeholder="Enter Project Region (e.g. NCR)">
 
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Project Agency URL</Form.Label>
-                    <Form.Control ref={projectAgencyURL} placeholder="Enter Project Agency (e.g. gov.ph)">
+                        </Form.Control>
+                    </Form.Group>
+                    </Col>
+                    <Col className="col-sm-6">
+                    <Form.Group className="mb-3">
+                        <Form.Label>Project Agency</Form.Label>
+                        <Form.Control ref={projectAgency} placeholder="Enter Project Agency (e.g. DOExample)">
 
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Private Proponent Manager</Form.Label>
-                    <Form.Control ref={projectManager} placeholder="Enter Project Manager (e.g. Harry Household)">
+                        </Form.Control>
+                    </Form.Group>
+                    </Col>
+                    <Col className="col-sm-6">
+                    <Form.Group className="mb-3">
+                        <Form.Label>Project Agency URL</Form.Label>
+                        <Form.Control ref={projectAgencyURL} placeholder="Enter Project Agency (e.g. gov.ph)">
 
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Project Start</Form.Label>
-                    <Form.Control ref={projectStart} placeholder="Enter Project Start (e.g. 2069)">
+                        </Form.Control>
+                    </Form.Group>
+                    </Col>
+                    <Col className="col-sm-6">
+                    <Form.Group className="mb-3">
+                        <Form.Label>Private Proponent Manager</Form.Label>
+                        <Form.Control ref={projectManager} placeholder="Enter Project Manager (e.g. Harry Household)">
 
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Project End</Form.Label>
-                    <Form.Control ref={projectEnd} placeholder="Enter Project End (e.g. 2070)">
+                        </Form.Control>
+                    </Form.Group>
+                    </Col>
+                    <Col className="col-sm-6">
+                    <Form.Group className="mb-3">
+                        <Form.Label>Project Start</Form.Label>
+                        <Form.Control ref={projectStart} placeholder="Enter Project Start (e.g. 2069)">
 
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Project Status</Form.Label>
-                    <Form.Control ref={projectStatus} placeholder="Enter Status (e.g Ongoing)">
+                        </Form.Control>
+                    </Form.Group>
+                    </Col>
+                    <Col className="col-sm-6">
+                    <Form.Group className="mb-3">
+                        <Form.Label>Project End</Form.Label>
+                        <Form.Control ref={projectEnd} placeholder="Enter Project End (e.g. 2070)">
 
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Image URL</Form.Label>
-                    <Form.Control ref={projectURL} placeholder="Enter Image URL">
+                        </Form.Control>
+                    </Form.Group>
+                    </Col>
+                    <Col className="col-sm-6">
+                    <Form.Group className="mb-3">
+                        <Form.Label>Project Status</Form.Label>
+                        <Form.Control ref={projectStatus} placeholder="Enter Status (e.g Ongoing)">
 
-                    </Form.Control>
-                </Form.Group>
+                        </Form.Control>
+                    </Form.Group>
+                    </Col>
+                    <Col className="col-sm-6">
+                    <Form.Group className="mb-3">
+                        <Form.Label>Image URL</Form.Label>
+                        <Form.Control ref={projectURL} placeholder="Enter Image URL">
+
+                        </Form.Control>
+                    </Form.Group>
+                    </Col>
+                </Row>
             </Form>
             <Button variant='primary' className="primary--bg" onClick={sendToBlockChain}>Submit</Button>
         </Container>

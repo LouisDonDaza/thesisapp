@@ -44,7 +44,7 @@ export default function App() {
     <Nav className="mx-auto">
     </Nav>
     <Nav>
-      {window.accountId==='loid.testnet'? <Nav.Link href='/NewPoll'>New Poll</Nav.Link>: null}
+      {window.accountId==='tbd'? <Nav.Link href='/NewPoll'>New Poll</Nav.Link>: null}
       
       <NavDropdown title="IELEC" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/projects">
@@ -77,7 +77,7 @@ export default function App() {
   <Route exact path ='/'element={window.accountId===""?<Landing/>: <ProjectList/> }>
   </Route>
   <Route exact path="/testing" element={<Home changeCandidates={changeCandidatesFunction}/>}> </Route>
-  <Route  exact path="/PollingStation" element={<PollingStation/>}>
+  <Route  exact path="/testingPollingStation" element={<PollingStation/>}>
     
   </Route>
   <Route  exact path="/NewPoll" element={<NewPoll/>}> </Route>
