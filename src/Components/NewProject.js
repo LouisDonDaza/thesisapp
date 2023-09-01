@@ -61,14 +61,7 @@ const NewProject = (props) => {
                         </Form.Control>
                     </Form.Group>
                     </Col>
-                    <Col className="col-sm-6">
-                    <Form.Group className="mb-3">
-                        <Form.Label>Project Title</Form.Label>
-                        <Form.Control ref={projectTitle} placeholder="Enter Project Title">
-
-                        </Form.Control>
-                    </Form.Group>
-                    </Col>
+                
                     <Col className="col-sm-6">
                     <Form.Group className="mb-3">
                         <Form.Label>Project Description</Form.Label>
